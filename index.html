@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Marcello Rocha Teixeira</title>
+
+  <!-- Vincula o arquivo de estilos externo -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== CABEÇALHO / MENU ========== -->
+  <header class="header">
+    <div class="header__container">
+
+      <!-- Logo / nome exibido no canto esquerdo do header -->
+      <span class="header__logo">Marcello Rocha Teixeira</span>
+
+      <!-- Botão hambúrguer: visível apenas em telas pequenas (CSS controla) -->
+      <button class="header__toggle" id="menuToggle"
+              aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Menu de navegação principal com links de âncora -->
+      <nav class="nav" id="navMenu" aria-label="Menu principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#sobre">Sobre mim</a></li>
+          <li><a class="nav__link" href="#formacao">Formação</a></li>
+          <li><a class="nav__link" href="#portfolio">Portfólio</a></li>
+          <li><a class="nav__link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botão para alternar entre tema claro e escuro -->
+      <button class="btn-theme" id="themeToggle" aria-label="Alternar tema">
+        🌙
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ========== SEÇÃO: SOBRE MIM ========== -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <h2 class="section__title">Sobre mim</h2>
+
+      <div class="sobre__content">
+
+        <!-- Foto de perfil circular -->
+        <img
+          class="sobre__foto"
+          src="https://private-user-images.githubusercontent.com/200983660/614144178-b4fa17f5-9d62-4487-98bd-4e0be32dc98b.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODI1ODczMDgsIm5iZiI6MTc4MjU4NzAwOCwicGF0aCI6Ii8yMDA5ODM2NjAvNjE0MTQ0MTc4LWI0ZmExN2Y1LTlkNjItNDQ4Ny05OGJkLTRlMGJlMzJkYzk4Yi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNjI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDYyN1QxOTAzMjhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zMmI0Y2Y3YjAxYzFhNGI1ZGYxMjljZGIyMGU4MzY5M2Q5OWQ2OTg0ZDBjM2YwMDc1ZDYwZjc0ZGMyMjg0N2M5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.eBw0fFRUQGRzMSMIMCuuOcX8qmDBI9v4Yoy-hrmDPSA"
+          alt="Foto de perfil de Marcello Rocha Teixeira"
+        />
+
+        <!-- Texto descritivo e lista de informações pessoais -->
+        <div class="sobre__texto">
+          <p>
+            Olá! Meu nome é <strong>Marcello Rocha Teixeira</strong>,
+            tenho 41 anos, sou casado e pai de 2 filhos e empresário na área de design gráfico.
+            Estou cursando <strong>Bacharelado em Engenharia de Software</strong> na UNINTER.
+          </p>
+          <p>
+            Nas horas vagas gosto de fazer atividades com meus filhos, cozinhar e marcenaria.
+            Também gosto de adquirir novos conhecimentos gerais, sou curioso.
+          </p>
+
+          <!-- Informações de contato rápido -->
+          <ul class="sobre__info">
+            <li><strong>Cidade:</strong> Maringá — Paraná</li>
+            <li><strong>E-mail:</strong> 1985mrt@gmail.com</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: FORMAÇÃO ========== -->
+  <section class="section section--alt" id="formacao">
+    <div class="container">
+      <h2 class="section__title">Formação</h2>
+
+      <!-- Bloco: Educação formal -->
+      <h3 class="subsection__title">Educação</h3>
+      <div class="card-grid">
+
+        <div class="card">
+          <h4 class="card__titulo">Bacharelado em Direito</h4>
+          <p class="card__instituicao">Pontifícia Universidade Católica — PUC</p>
+          <p class="card__periodo">Conclusão em 2010</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card__titulo">Ensino Médio</h4>
+          <p class="card__instituicao">Colégio Drumond</p>
+          <p class="card__periodo">Conclusão em 2003</p>
+        </div>
+
+      </div>
+
+      <!-- Bloco: Cursos complementares -->
+      <h3 class="subsection__title">Cursos Complementares</h3>
+      <div class="card-grid">
+
+        <div class="card">
+          <h4 class="card__titulo">Montagem e Manutenção de Microcomputadores</h4>
+          <p class="card__instituicao">Prefeitura Municipal de Maringá</p>
+          <p class="card__periodo">Conclusão em 2000</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card__titulo">Relacionamento Interpessoal</h4>
+          <p class="card__instituicao">TEMM — Trabalho e Encaminhamento ao Menor de Maringá</p>
+          <p class="card__periodo">Conclusão em 1998</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card__titulo">Digitação</h4>
+          <p class="card__instituicao">TEMM — Trabalho e Encaminhamento ao Menor de Maringá</p>
+          <p class="card__periodo">Conclusão em 1998</p>
+        </div>
+
+      </div>
+
+      <!-- Bloco: Idiomas com barras de progresso visuais -->
+      <h3 class="subsection__title">Idiomas</h3>
+      <div class="card-grid">
+
+        <div class="card">
+          <h4 class="card__titulo">Português</h4>
+          <p class="card__instituicao">Nativo</p>
+          <!-- role e aria-valuenow tornam a barra acessível a leitores de tela -->
+          <div class="progresso" role="progressbar"
+               aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+               aria-label="Proficiência em Português: 100%">
+            <div class="progresso__barra" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4 class="card__titulo">Inglês</h4>
+          <p class="card__instituicao">Básico</p>
+          <div class="progresso" role="progressbar"
+               aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+               aria-label="Proficiência em Inglês: 60%">
+            <div class="progresso__barra" style="width: 60%;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: PORTFÓLIO ========== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <h2 class="section__title">Portfólio</h2>
+
+      <!-- Grade de projetos — cada card representa um trabalho -->
+      <div class="card-grid">
+
+        <!-- Projeto 1 -->
+        <div class="card card--projeto">
+          <h4 class="card__titulo">Trabalho 1 — Lógica e Algoritmos</h4>
+          <p>Calculadora simples para plano de saúde com variação percentual de valor de acordo com a idade. Desenvolvida em Python.</p>
+          <a class="btn" href="https://github.com/MarcelloRocha1985/Trabalho-1---Logica.git"
+             target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </div>
+
+        <!-- Projeto 2 -->
+        <div class="card card--projeto">
+          <h4 class="card__titulo">Trabalho 2 — Lógica e Algoritmos</h4>
+          <p>Interface de vendas para pizzaria com retirada do produto e variação de valores conforme tamanho e sabor. Desenvolvido em Python.</p>
+          <a class="btn" href="https://github.com/MarcelloRocha1985/Trabalho-2---Logica.git"
+             target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </div>
+
+        <!-- Projeto 3 -->
+        <div class="card card--projeto">
+          <h4 class="card__titulo">Trabalho 3 — Lógica e Algoritmos</h4>
+          <p>Sistema de vendas de uma madereira com cálculo de variação por tipo, tamanho, quantidade e frete. Desenvolvido em Python.</p>
+          <a class="btn" href="https://github.com/MarcelloRocha1985/Trabalho-3---Logica.git"
+             target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </div>
+
+        <!-- Projeto 4 -->
+        <div class="card card--projeto">
+          <h4 class="card__titulo">Trabalho 4 — Lógica e Algoritmos</h4>
+          <p>Sistema de gerenciamento de contatos comerciais com cadastro, consulta por nome ou atividade, remoção e encerramento. Desenvolvido em Python.</p>
+          <a class="btn" href="https://github.com/MarcelloRocha1985/Trabalho-4---Logica.git"
+             target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </div>
+
+        <!-- Projeto 5 -->
+        <div class="card card--projeto">
+          <h4 class="card__titulo">Trabalho 5 — Comunicação Empresarial</h4>
+          <p>Desenvolvimento de texto formal para uso empresarial com utilização de IA, análise crítica e confecção de relatório.</p>
+          <a class="btn" href="https://github.com/MarcelloRocha1985/Trabalho-5---Relatorio---Comunicacao-Empresarial.git"
+             target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </div>
+
+        <!-- Projeto 6 -->
+        <div class="card card--projeto">
+          <h4 class="card__titulo">Trabalho 6 — Logotipo Fox do Brasil</h4>
+          <p>Criação de logotipo profissional para a empresa de Máquinas e Ferramentas Fox do Brasil, como Designer Gráfico.</p>
+          <a class="btn" href="https://github.com/MarcelloRocha1985/Logotipo---Fox-do-Brasil.git"
+             target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </div>
+
+        <!-- Projeto 7 -->
+        <div class="card card--projeto">
+          <h4 class="card__titulo">Trabalho 7 — Banners Fox do Brasil</h4>
+          <p>Série de banners para divulgação de ferramentas da empresa Fox do Brasil, desenvolvidos como Designer Gráfico.</p>
+          <a class="btn" href="https://github.com/MarcelloRocha1985/Banners---Fox-do-Brasil.git"
+             target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: CONTATO ========== -->
+  <section class="section section--alt" id="contato">
+    <div class="container">
+      <h2 class="section__title">Contato</h2>
+
+      <!-- Mensagem de feedback geral (sucesso ou erro) — exibida pelo JS -->
+      <div class="form__feedback" id="formFeedback"
+           role="alert" aria-live="polite"></div>
+
+      <!--
+        novalidate: desativa a validação nativa do navegador
+        para que o JS cuide de toda a lógica e mensagens de erro
+      -->
+      <form class="form" id="contatoForm" novalidate>
+
+        <div class="form__grupo">
+          <label class="form__label" for="nome">Nome *</label>
+          <input
+            class="form__input"
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Seu nome completo"
+            autocomplete="name"
+          />
+          <!-- Mensagem de erro do campo nome, preenchida pelo JS -->
+          <span class="form__erro" id="erroNome" aria-live="polite"></span>
+        </div>
+
+        <div class="form__grupo">
+          <label class="form__label" for="email">E-mail *</label>
+          <input
+            class="form__input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            autocomplete="email"
+          />
+          <!-- Mensagem de erro do campo e-mail, preenchida pelo JS -->
+          <span class="form__erro" id="erroEmail" aria-live="polite"></span>
+        </div>
+
+        <div class="form__grupo">
+          <label class="form__label" for="mensagem">Mensagem *</label>
+          <textarea
+            class="form__input form__textarea"
+            id="mensagem"
+            name="mensagem"
+            placeholder="Escreva sua mensagem..."
+            rows="4"
+          ></textarea>
+          <!-- Mensagem de erro do campo mensagem, preenchida pelo JS -->
+          <span class="form__erro" id="erroMensagem" aria-live="polite"></span>
+        </div>
+
+        <button class="btn btn--submit" type="submit">Enviar mensagem</button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="footer">
+    <p>&copy; 2026 Marcello Rocha Teixeira. Todos os direitos reservados.</p>
+  </footer>
+
+  <!--
+    MODAL E OVERLAY — posicionados fora de qualquer container ou section.
+    Isso é essencial para que o position: fixed funcione corretamente
+    sem ser afetado por transform, overflow ou z-index de elementos pai.
+  -->
+  <div class="modal" id="modal"
+       role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal__caixa">
+      <h3 class="modal__titulo" id="modalTitulo">✅ Mensagem enviada!</h3>
+      <p>Obrigado pelo contato. Responderei em breve.</p>
+      <button class="btn" id="fecharModal">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Overlay escuro exibido atrás do modal -->
+  <div class="modal__overlay" id="modalOverlay"></div>
+
+  <!-- Script vinculado no final do body para garantir que o DOM
+       esteja completamente carregado antes da execução -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,629 @@
+/* ============================================================
+   VARIÁVEIS DE TEMA
+   Definidas no :root para o tema claro (padrão).
+   O seletor [data-theme="dark"] sobrescreve apenas as
+   variáveis que mudam, mantendo o restante intacto.
+   O JavaScript alterna o atributo data-theme no <html>.
+   ============================================================ */
+:root {
+  --cor-primaria:       #2563eb;
+  --cor-primaria-hover: #1d4ed8;
+  --cor-bg:             #f8fafc;
+  --cor-bg-alt:         #e2e8f0;
+  --cor-texto:          #1e293b;
+  --cor-texto-suave:    #64748b;
+  --cor-card:           #ffffff;
+  --cor-borda:          #cbd5e1;
+  --cor-header:         #1e293b;
+  --cor-header-texto:   #f8fafc;
+  --cor-erro:           #dc2626;
+  --cor-sucesso:        #16a34a;
+  --sombra:             0 2px 12px rgba(0, 0, 0, 0.08);
+  --raio:               10px;
+  --transicao:          0.3s ease;
+}
+
+/* Sobrescreve as variáveis para o tema escuro */
+[data-theme="dark"] {
+  --cor-bg:           #0f172a;
+  --cor-bg-alt:       #1e293b;
+  --cor-texto:        #f1f5f9;
+  --cor-texto-suave:  #94a3b8;
+  --cor-card:         #1e293b;
+  --cor-borda:        #334155;
+  --cor-header:       #0f172a;
+  --cor-header-texto: #f1f5f9;
+  --sombra:           0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ============================================================
+   RESET E BASE
+   Remove margens/paddings padrão do navegador e padroniza
+   o box-model para todos os elementos.
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Rolagem suave ao clicar nos links de âncora do menu */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--cor-bg);
+  color: var(--cor-texto);
+  line-height: 1.7;
+  /* Transição suave ao trocar de tema */
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Remove marcadores de listas por padrão */
+ul {
+  list-style: none;
+}
+
+/* Imagens nunca ultrapassam o container pai */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ============================================================
+   UTILITÁRIO: CONTAINER
+   Centraliza e limita a largura máxima do conteúdo,
+   com padding lateral para não colar nas bordas em mobile.
+   ============================================================ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+/* ============================================================
+   CABEÇALHO / HEADER
+   Fica fixo no topo da página durante a rolagem (sticky).
+   O z-index garante que fique acima de todos os outros elementos.
+   ============================================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--cor-header);
+  color: var(--cor-header-texto);
+  box-shadow: var(--sombra);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+  /* position: relative é necessário para que o menu mobile
+     com position: absolute se posicione em relação ao header */
+  position: relative;
+}
+
+.header__logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  white-space: nowrap; /* Impede quebra de linha no nome */
+}
+
+
+/* ============================================================
+   NAVEGAÇÃO
+   ============================================================ */
+.nav__list {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav__link {
+  color: var(--cor-header-texto);
+  font-weight: 500;
+  padding: 0.25rem 0;
+  /* Sublinhado animado no hover via border-bottom */
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transicao), color var(--transicao);
+}
+
+.nav__link:hover {
+  border-bottom-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+/* Botão hambúrguer — oculto em desktop, exibido via media query */
+.header__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Cada linha do ícone hambúrguer */
+.header__toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--cor-header-texto);
+  border-radius: 3px;
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+
+/* ============================================================
+   BOTÃO DE TEMA CLARO / ESCURO
+   ============================================================ */
+.btn-theme {
+  background: none;
+  border: 2px solid var(--cor-borda);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transicao), background-color var(--transicao);
+  flex-shrink: 0; /* Não encolhe quando o espaço é reduzido */
+}
+
+.btn-theme:hover {
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+
+/* Anel de foco visível para navegação por teclado */
+.btn-theme:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   SEÇÕES
+   ============================================================ */
+.section {
+  padding: 5rem 0;
+}
+
+/* Seções alternadas recebem fundo diferente para separação visual */
+.section--alt {
+  background-color: var(--cor-bg-alt);
+}
+
+.section__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Sublinhado decorativo gerado via CSS no título da seção */
+.section__title::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 4px;
+  background-color: var(--cor-primaria);
+  border-radius: 2px;
+  margin-top: 6px;
+}
+
+/* Subtítulos das subseções (Educação, Idiomas etc.) */
+.subsection__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  margin: 2rem 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================================
+   SEÇÃO: SOBRE MIM
+   Layout em linha (foto + texto) que empilha em mobile.
+   ============================================================ */
+.sobre__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex-wrap: wrap; /* Empilha automaticamente em telas menores */
+}
+
+/* Foto circular com borda colorida */
+.sobre__foto {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--cor-primaria);
+  flex-shrink: 0; /* A foto não encolhe junto com o texto */
+}
+
+.sobre__texto {
+  flex: 1;
+  min-width: 260px;
+}
+
+.sobre__texto p {
+  margin-bottom: 1rem;
+  color: var(--cor-texto);
+}
+
+/* Lista de informações pessoais (cidade, e-mail) */
+.sobre__info {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sobre__info li {
+  font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   CARDS — usados em Formação e Portfólio
+   Grade responsiva: colunas de no mínimo 260px,
+   preenchendo o espaço disponível automaticamente.
+   ============================================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+  box-shadow: var(--sombra);
+  /* Elevação sutil no hover */
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card__titulo {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--cor-primaria);
+}
+
+.card__instituicao {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 0.3rem;
+}
+
+.card__periodo {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  font-style: italic;
+}
+
+/* Cards de projeto: coluna flexível para empurrar o botão para baixo */
+.card--projeto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* margin-top: auto empurra o botão para o rodapé do card */
+.card--projeto .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+
+/* ============================================================
+   BARRA DE PROGRESSO — Idiomas
+   A largura da barra interna é definida via style="" no HTML.
+   ============================================================ */
+.progresso {
+  background-color: var(--cor-borda); /* Trilho da barra */
+  border-radius: 999px;
+  height: 8px;
+  margin-top: 0.75rem;
+  overflow: hidden; /* Garante que a barra não ultrapasse o trilho */
+}
+
+.progresso__barra {
+  height: 100%;
+  background-color: var(--cor-primaria);
+  border-radius: 999px;
+  transition: width 0.6s ease; /* Animação ao carregar */
+}
+
+
+/* ============================================================
+   BOTÃO GENÉRICO
+   Usado em links de projeto e no submit do formulário.
+   ============================================================ */
+.btn {
+  display: inline-block;
+  background-color: var(--cor-primaria);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--raio);
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color var(--transicao), transform var(--transicao);
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--cor-primaria-hover);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Foco visível para navegação por teclado */
+.btn:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 3px;
+}
+
+/* Variante do botão para o submit do formulário */
+.btn--submit {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+
+/* ============================================================
+   FORMULÁRIO DE CONTATO
+   ============================================================ */
+.form {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Agrupa label + input + mensagem de erro */
+.form__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form__input {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background-color: var(--cor-card);
+  color: var(--cor-texto);
+  font-size: 1rem;
+  font-family: inherit; /* Herda a fonte do body */
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+  outline: none;
+}
+
+/* Destaca o campo com anel azul ao receber foco */
+.form__input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Borda vermelha aplicada pelo JS quando o campo tem erro */
+.form__input--erro {
+  border-color: var(--cor-erro);
+}
+
+/* Textarea pode ser redimensionada verticalmente */
+.form__textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Texto de erro individual abaixo de cada campo */
+.form__erro {
+  font-size: 0.82rem;
+  color: var(--cor-erro);
+  min-height: 1rem; /* Reserva espaço para não deslocar o layout */
+}
+
+/* Feedback geral oculto por padrão — classes abaixo o tornam visível */
+.form__feedback {
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--raio);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+.form__feedback--sucesso {
+  background-color: #dcfce7;
+  color: var(--cor-sucesso);
+  border: 1px solid #86efac;
+  display: block;
+}
+
+.form__feedback--erro {
+  background-color: #fee2e2;
+  color: var(--cor-erro);
+  border: 1px solid #fca5a5;
+  display: block;
+}
+
+
+/* ============================================================
+   MODAL DE CONFIRMAÇÃO
+   Oculto por padrão com display: none.
+   A classe --ativo, adicionada pelo JS, o torna visível.
+   Posicionado fora de qualquer container no HTML para que
+   o position: fixed cubra toda a viewport sem interferências.
+   ============================================================ */
+.modal {
+  display: none; /* Oculto por padrão */
+  position: fixed;
+  inset: 0;      /* Cobre toda a tela: top/right/bottom/left = 0 */
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Quando ativo, exibe como flex para centralizar a caixa */
+.modal--ativo {
+  display: flex;
+}
+
+/* Caixa central do modal */
+.modal__caixa {
+  background-color: var(--cor-card);
+  border-radius: var(--raio);
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 2001; /* Acima do overlay */
+  /* Animação de entrada ao abrir */
+  animation: entradaModal 0.25s ease;
+}
+
+/* Escala de 90% → 100% com fade in */
+@keyframes entradaModal {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.modal__titulo {
+  font-size: 1.4rem;
+  color: var(--cor-sucesso);
+}
+
+/* Overlay escuro atrás da caixa do modal */
+.modal__overlay {
+  display: none; /* Oculto por padrão */
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1999; /* Abaixo da caixa, acima do conteúdo */
+}
+
+/* Classe adicionada pelo JS para exibir o overlay */
+.modal__overlay--ativo {
+  display: block;
+}
+
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.footer {
+  background-color: var(--cor-header);
+  color: var(--cor-header-texto);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE — telas até 768px (tablets e celulares)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Exibe o botão hambúrguer */
+  .header__toggle {
+    display: flex;
+  }
+
+  /* Menu colapsa com max-height: 0 e expande com a classe --aberto */
+  .nav {
+    position: absolute;
+    top: 100%;  /* Logo abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: var(--cor-header);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  /* Altura máxima suficiente para mostrar todos os itens */
+  .nav--aberto {
+    max-height: 300px;
+  }
+
+  /* Links empilhados verticalmente no menu mobile */
+  .nav__list {
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 1rem;
+  }
+
+  /* Foto e texto de "Sobre mim" empilhados e centralizados */
+  .sobre__content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE — telas até 480px (celulares pequenos)
+   ============================================================ */
+@media (max-width: 480px) {
+
+  /* Título um pouco menor para caber melhor */
+  .section__title {
+    font-size: 1.6rem;
+  }
+
+  /* Uma coluna apenas em telas muito estreitas */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
